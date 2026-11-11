@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>My wedding - Everlove</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/style.css}"><link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}"><meta name="theme-color" content="#9d3d55"></head><body>
+<div th:replace="~{fragments :: nav('wedding')}"></div>
+<section class="pagehead"><div class="wrap"><div class="eyebrow">MY WEDDING</div><h1>Your wedding planner</h1>
+    <p>Save your date, venue and budget. We track how much you have committed to vendors.</p></div></section>
+<div class="wrap"><div class="ok" th:if="${param.saved}">Wedding details saved.</div>
+    <div class="two">
+        <form class="Panel" th:action="@{/customer/wedding}" method="post">
+            <h2>Wedding details</h2>
+            <label>Wedding date</label><input type="date" name="date" th:value="${plan != null} ? ${plan.date}" required>
+            <label>Venue</label><input name="venue" placeholder="Not decided yet" th:value="${plan != null} ? ${plan.venue}">
+            <label>Total budget (LKR)</label><input type="number" name="budget" min="0" th:value="${plan != null} ? ${plan.budget}" required>
+            <label>Number of guests</label><input type="number" name="guests" min="1" th:value="${plan != null} ? ${plan.guests}" required>
+            <button class="btn" type="submit">Save details</button>
+        </form>
+        <div class="panel" th:if="${plan == null}"><div class="empty"><div class="ico">♡</div><p>Fill in your details to start your countdown and budget tracker.</p></div></div>
+        <div class="panel" th:if="${plan != null}">
+            <div class="bigno" th:text="${daysLeft >= 0} ? ${daysLeft} : 0"></div><p>days to go<span th:if="${plan.venue != ''}" th:text="' - ' + ${plan.venue}"></span></p>
+            <h3 style="margin-top:2rem">Budget tracker</h3>
+            <div class="meter"><span th:style="'width:' + ${percent} + '%'"></span></div>
+            <p>Committed to vendors: <b th:text="'LKR ' + ${#numbers.formatInteger(committed,1,'COMMA')}"></b></p>
+            <p>Remaining: <b th:text="'LKR ' + ${#numbers.formatInteger(remaining,1,'COMMA')}"></b></p>
+        </div>
+    </div></div></body></html>
