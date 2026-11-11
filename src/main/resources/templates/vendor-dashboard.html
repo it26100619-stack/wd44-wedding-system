@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Vendor dashboard - Everlove</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/style.css}"><link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}"><meta name="theme-color" content="#9d3d55"></head>
+<body>
+<div class="bar"><img th:src="@{/images/logo.png}" alt="Everlove"><span>Hello, <b th:text="${vendor.name}"></b> &nbsp; <a th:href="@{/vendor/logout}">Log out</a></span></div>
+<main class="dash">
+  <div class="card">
+    <span class="tag" th:text="${vendor.category}"></span>
+    <h3 th:text="${vendor.name}"></h3>
+    <p class="muted" th:text="${vendor.city} + ' - from LKR ' + ${vendor.price} + ' - ' + ${vendor.phone}"></p>
+    <p th:text="${vendor.description}"></p>
+    <p th:text="${vendor.reviewCount > 0} ? 'Rated ' + ${#numbers.formatDecimal(vendor.rating,1,1)} + '/5 from ' + ${vendor.reviewCount} + ' reviews' : 'No reviews yet'"></p>
+  </div>
+
+  <h2>Booking requests</h2>
+  <table>
+    <tr><th>Couple</th><th>Date</th><th>Guests</th><th>Total (LKR)</th><th>Note</th><th>Status</th><th>Action</th></tr>
+    <tr th:each="b : ${bookings}">
+      <td th:text="${b.customerName}"></td><td th:text="${b.date}"></td><td th:text="${b.guests}"></td><td th:text="${b.total}"></td><td th:text="${b.note}"></td>
+      <td><span class="badge" th:classappend="${b.status}" th:text="${b.status}"></span></td>
+      <td th:if="${b.status == 'PENDING'}">
+        <form class="inline" th:action="@{/vendor/booking/{id}/ACCEPTED(id=${b.id})}" method="post"><button class="btn small" type="submit">Accept</button></form>
+        <form class="inline" th:action="@{/vendor/booking/{id}/REJECTED(id=${b.id})}" method="post"><button class="btn small danger" type="submit">Decline</button></form>
+      </td>
+      <td th:unless="${b.status == 'PENDING'}"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(bookings)}"><td colspan="7" class="muted">No requests yet. Couples will appear here when they book you.</td></tr>
+  </table>
+
+  <h2>My packages and items</h2>
+  <form class="card row" th:action="@{/vendor/item}" method="post">
+    <div><label>Name</label><input name="name" placeholder="e.g. Full-day photography" required></div>
+    <div><label>Price (LKR)</label><input type="number" name="price" min="0" required></div>
+    <div><label>Price type</label><select name="type"><option value="FIXED">Flat rate</option><option value="PER_GUEST">Per guest</option></select></div>
+    <button class="btn" type="submit">Add item</button>
+  </form>
+  <table style="margin-top:1rem">
+    <tr><th>Item</th><th>Price</th><th></th></tr>
+    <tr th:each="i : ${items}"><td th:text="${i.name}"></td><td th:text="'LKR ' + ${i.price} + ' ' + ${i.label}"></td>
+      <td><form th:action="@{/vendor/item/{id}/delete(id=${i.id})}" method="post"><button class="btn small danger" type="submit">Delete</button></form></td></tr>
+    <tr th:if="${#lists.isEmpty(items)}"><td colspan="3" class="muted">Add the packages couples can choose from.</td></tr>
+  </table>
+
+  <h2>Reviews</h2>
+  <div class="grid">
+    <div class="card" th:each="r : ${reviews}"><b th:text="${r.customerName}"></b><p th:text="${r.rating} + '/5'"></p><p th:text="${r.comment}"></p></div>
+  </div>
+  <p class="muted" th:if="${#lists.isEmpty(reviews)}">Reviews appear here after couples complete a booking.</p>
+</main></body></html>
