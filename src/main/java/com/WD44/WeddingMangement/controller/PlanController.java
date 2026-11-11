@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /** PLAN MANAGEMENT: wedding date, venue, budget, guests, countdown and budget tracker. */
-//12
+// Refactored plan management controller
 @Controller
 @RequestMapping("/customer/wedding")
 public class PlanController extends BaseController {
