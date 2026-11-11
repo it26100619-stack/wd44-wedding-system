@@ -1,12 +1,10 @@
 package com.WD44.WeddingMangement.model;
-/**
- * USER MANAGEMENT - OOP concepts
- * 1. Abstraction   : User is abstract; getRole() and getDashboardPath() have no body here.
- * 2. Inheritance   : Customer, Admin (and Vendor) extend User and reuse its fields and checkLogin().
- * 3. Encapsulation : all fields are private; the password is never exposed by a getter-based check.
- */
+
 public abstract class User extends BaseEntity {
-    private String name, email, password, phone;
+    private String name;
+    private String email;
+    private String password;
+    private String phone;
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name == null ? "" : name.trim(); }
