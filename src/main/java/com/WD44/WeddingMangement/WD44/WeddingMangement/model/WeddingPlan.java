@@ -3,12 +3,7 @@ import static com.WD44.WeddingMangement.repository.TextFileRepository.at;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-/**
- * PLAN MANAGEMENT - OOP concepts
- * 1. Encapsulation : private fields; budget and guests are cleaned in their setters (guests is at least 1).
- * 2. Inheritance   : extends BaseEntity - the plan's id is the owner's customer id.
- * 3. Abstraction   : the countdown and budget maths are hidden behind getDaysLeft() / percentUsed() / remaining().
- */
+
 public class WeddingPlan extends BaseEntity {
     private String date = "", budget = "0", guests = "1", venue = "";
 
