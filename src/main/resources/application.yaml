@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: WeddingMangement
+server:
+  port: 8080
+
+admin:
+  email: admin@wedding.com
+  password: admin123
