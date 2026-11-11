@@ -10,6 +10,7 @@ import java.time.temporal.ChronoUnit;
  * 3. Abstraction   : the countdown and budget maths are hidden behind getDaysLeft() / percentUsed() / remaining().
  */
 public class WeddingPlan extends BaseEntity {
+    //7
     private String date = "", budget = "0", guests = "1", venue = "";
 
     public static WeddingPlan from(String[] r) {

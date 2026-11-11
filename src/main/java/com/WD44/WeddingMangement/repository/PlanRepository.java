@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 /** PLAN MANAGEMENT repository - plans.txt (one plan per customer, id = customer id) */
 @Repository
 public class PlanRepository extends BaseRepository<WeddingPlan> {
+    //8
     public PlanRepository(TextFileRepository file) { super(file); }
     @Override protected String fileName() { return "plans.txt"; }
     @Override protected WeddingPlan fromRow(String[] r) { return WeddingPlan.from(r); }

@@ -5,7 +5,7 @@
     <p>Save your date, venue and budget. We track how much you have committed to vendors.</p></div></section>
 <div class="wrap"><div class="ok" th:if="${param.saved}">Wedding details saved.</div>
     <div class="two">
-        <form class="panel" th:action="@{/customer/wedding}" method="post">
+        <form class="Panel" th:action="@{/customer/wedding}" method="post">
             <h2>Wedding details</h2>
             <label>Wedding date</label><input type="date" name="date" th:value="${plan != null} ? ${plan.date}" required>
             <label>Venue</label><input name="venue" placeholder="Not decided yet" th:value="${plan != null} ? ${plan.venue}">
