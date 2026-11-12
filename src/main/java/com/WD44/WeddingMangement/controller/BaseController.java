@@ -15,6 +15,6 @@ public abstract class BaseController {
     protected Customer user(HttpSession s) { return (Customer) s.getAttribute("customer"); }
     protected String vendorId(HttpSession s) { return (String) s.getAttribute("vendorId"); }
 
-    /** Makes "customer" available to the navigation bar on every customer page. */
+
     @ModelAttribute("customer") public Customer currentCustomer(HttpSession s) { return user(s); }
 }
