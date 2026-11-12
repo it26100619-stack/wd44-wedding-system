@@ -4,7 +4,6 @@ import com.WD44.WeddingMangement.model.Storable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 public abstract class BaseRepository<T extends Storable> {
     protected final TextFileRepository file;
     protected BaseRepository(TextFileRepository file) { this.file = file; }
