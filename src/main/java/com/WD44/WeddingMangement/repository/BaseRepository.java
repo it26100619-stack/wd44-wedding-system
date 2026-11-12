@@ -18,7 +18,7 @@ public abstract class BaseRepository<T extends Storable> {
     public String nextId() { return file.nextId(fileName()); }
     public int count() { return file.read(fileName()).size(); }
 
-    /** Replace the row with the same id, or add it if it does not exist yet. */
+
     public void upsert(T item) {
         List<String[]> rows = file.read(fileName());
         boolean found = false;
