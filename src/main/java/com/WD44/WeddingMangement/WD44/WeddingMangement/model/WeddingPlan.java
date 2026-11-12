@@ -1,3 +1,4 @@
+package com.WD44.WeddingMangement.WD44.WeddingMangement.model;
 package com.WD44.WeddingMangement.model;
 import static com.WD44.WeddingMangement.repository.TextFileRepository.at;
 import java.time.LocalDate;
@@ -31,4 +32,5 @@ public class WeddingPlan extends BaseEntity {
         String d = guests == null ? "" : guests.replaceAll("[^0-9]", "");
         this.guests = String.valueOf(Math.max(1, d.isEmpty() ? 1 : Integer.parseInt(d)));
     }
+}
 }
