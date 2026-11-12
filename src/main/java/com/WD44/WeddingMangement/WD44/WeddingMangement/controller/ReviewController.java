@@ -9,7 +9,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** REVIEW MANAGEMENT: write a review for an accepted booking. */
 @Controller
 @RequestMapping("/customer/review")
 public class ReviewController extends BaseController {
