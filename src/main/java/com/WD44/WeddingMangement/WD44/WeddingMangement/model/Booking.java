@@ -1,12 +1,7 @@
 package com.WD44.WeddingMangement.WD44.WeddingMangement.model;
 import static com.WD44.WeddingMangement.repository.TextFileRepository.at;
 
-/**
- * BOOKING MANAGEMENT - OOP concepts
- * 1. Encapsulation : private fields; setStatus() rejects any value that is not a valid BookingStatus.
- * 2. Inheritance   : Booking extends BaseEntity (id) and so can be saved by the shared BaseRepository.
- * 3. Polymorphism  : the BookingStatus constants decide canReview() / canRespond() themselves.
- */
+
 public class Booking extends BaseEntity {
     private String customerId, customerName, vendorId, vendorName, date, note, guests = "0", total = "0";
     private BookingStatus status = BookingStatus.PENDING;
