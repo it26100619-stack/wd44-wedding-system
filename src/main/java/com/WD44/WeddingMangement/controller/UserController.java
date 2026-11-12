@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** USER MANAGEMENT: customer register, login, logout and profile. */
+
 @Controller
 @RequestMapping("/customer")
 public class UserController extends BaseController {
