@@ -1,0 +1,15 @@
+1|Botanical Facial & Glow Cleanse|vendor@gmail.com|12345|0745621|Photographer|colombo|8945|gbs|Flat rate
+2|Lumina Wedding Studios|lumina@gmail.com|12345|0771234501|Photographer|Colombo|150000|Full-day wedding photography with an edited album and online gallery.|Flat rate
+3|Golden Frame Photography|goldenframe@gmail.com|12345|0771234502|Photographer|Kandy|95000|Candid and traditional photography for weddings and homecomings.|Flat rate
+4|Royal Feast Catering|royalfeast@gmail.com|12345|0771234503|Caterer|Kandy|3500|Rice and curry, western and Chinese buffet menus for any guest count.|Per guest
+5|Spice Garden Caterers|spicegarden@gmail.com|12345|0771234504|Caterer|Colombo|4200|Live cooking stations, desserts and a full wedding buffet.|Per guest
+6|Petal & Bloom Florals|petalbloom@gmail.com|12345|0771234505|Florist|Galle|45000|Bridal bouquets, church and hall flowers, and aisle arrangements.|Flat rate
+7|Orchid Lane Florist|orchidlane@gmail.com|12345|0771234506|Florist|Negombo|38000|Fresh orchid and jasmine arrangements and table centrepieces.|Flat rate
+8|Grand Lotus Gardens|grandlotus@gmail.com|12345|0771234507|Venue|Kurunegala|400000|Garden venue for up to 400 guests with a stage and parking.|Flat rate
+9|Seaside Pearl Banquet Hall|seasidepearl@gmail.com|12345|0771234508|Venue|Negombo|550000|Beachfront banquet hall with air conditioning and a bridal suite.|Flat rate
+10|Beatwave Events DJ|beatwave@gmail.com|12345|0771234509|DJ|Colombo|60000|Wedding DJ, sound system and dance floor lighting.|Flat rate
+11|Rhythm and Vows Sound|rhythmvows@gmail.com|12345|0771234510|DJ|Kandy|45000|Live band and DJ combos for ceremony and reception.|Flat rate
+12|Golden Hour Decor|goldenhour@gmail.com|12345|0771234511|Decorator|Negombo|90000|Stage, poruwa, fairy lights and full hall decoration.|Flat rate
+13|Dream Canvas Decorators|dreamcanvas@gmail.com|12345|0771234512|Decorator|Galle|75000|Themed table settings, backdrops and entrance arches.|Flat rate
+14|Poruwa|poruwa@gmail.com|12345|0771198191|Decorator|colombo|15000|Poruwa|Flat rate
+15|Poruwa2|poruwa2@gmail.com|12345|0761234|Venue|colombo|89555|uhbj|Flat rate
