@@ -9,7 +9,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 @Controller
 public class BookingController extends BaseController {
     private final BookingRepository bookings;
