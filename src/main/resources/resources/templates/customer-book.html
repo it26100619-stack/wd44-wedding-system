@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Book vendor - Everlove</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/style.css}"><link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}"><meta name="theme-color" content="#9d3d55"></head><body>
+<div th:replace="~{fragments :: nav('vendors')}"></div>
+<section class="pagehead"><div class="wrap"><div class="eyebrow">STEP 2</div><h1>Date and guests</h1><p th:text="'Booking ' + ${vendor.name} + ' (' + ${vendor.category} + ', ' + ${vendor.city} + ')'"></p></div></section>
+<div class="wrap">
+  <div class="steps3" style="margin-top:2rem"><div class="done">1. Choose vendor</div><div class="active">2. Date and guests</div><div>3. Request sent</div></div>
+  <div class="split"><div>
+  <div class="panel" th:if="${!#lists.isEmpty(items)}" style="max-width:640px"><h3>Packages from this vendor</h3><table><tr th:each="i : ${items}"><td th:text="${i.name}"></td><td th:text="'LKR ' + ${i.price} + ' ' + ${i.label}"></td></tr></table></div>
+  <form class="panel" th:action="@{/customer/book}" method="post" style="max-width:640px">
+    <input type="hidden" name="vendorId" th:value="${vendor.id}">
+    <label>Wedding date</label><input type="date" name="date" th:value="${plan != null} ? ${plan.date}" required>
+    <label>Number of guests</label><input type="number" id="guests" name="guests" min="1" th:value="${plan != null} ? ${plan.guests} : 100" required>
+    <label>Note for the vendor</label><textarea name="note" rows="3" placeholder="Anything they should know"></textarea>
+    <p>Estimated total: <b id="total"></b> <span class="muted" th:text="'(' + ${vendor.unit} + ' from LKR ' + ${vendor.priceNumber} + ')'"></span></p>
+    <button class="btn" type="submit">Send booking request</button>
+  </form>
+</div>
+<aside class="side-art art-couple"><div class="cap"><h3>Every love story needs a date</h3><p>Pick your day and guest count, and we will estimate the cost before you send your request.</p></div></aside></div>
+</div>
+<script th:inline="javascript">
+  const price = /*[[${vendor.priceNumber}]]*/ 0, perGuest = /*[[${vendor.unit == 'Per guest'}]]*/ false;
+  const g = document.getElementById('guests'), t = document.getElementById('total');
+  function upd(){ t.textContent = 'LKR ' + (perGuest ? price * (+g.value || 0) : price).toLocaleString(); }
+  g.addEventListener('input', upd); upd();
+</script></body></html>
