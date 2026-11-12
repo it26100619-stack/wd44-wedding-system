@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** REVIEW MANAGEMENT repository - reviews.txt */
 @Repository
 public class ReviewRepository extends BaseRepository<Review> {
     public ReviewRepository(TextFileRepository file) { super(file); }
