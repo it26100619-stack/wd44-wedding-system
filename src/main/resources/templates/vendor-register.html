@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Vendor registration - Everlove</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/style.css}"><link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}"><meta name="theme-color" content="#9d3d55"></head>
+<body class="auth"><div class="box">
+  <img th:src="@{/images/logo.png}" alt="Everlove">
+  <h1>&hearts; Vendor registration</h1>
+  <div class="ok" th:if="${param.registered}">Account created. Please sign in.</div>
+  <div class="error" th:if="${error}" th:text="${error}"></div>
+  <form th:action="@{/vendor/register}" method="post">
+    <label>Business name</label><input name="name" required>
+    <label>Email</label><input type="email" name="email" required>
+    <label>Password</label><input type="password" name="password" required minlength="4">
+    <label>Phone</label><input name="phone" required>
+    <label>Category</label><select name="category"><option>Photographer</option><option>Caterer</option><option>Florist</option><option>Venue</option><option>DJ</option><option>Decorator</option></select>
+    <label>City</label><input name="city" required>
+    <label>Starting price (LKR)</label><input type="number" name="price" min="0" required>
+    <label>Pricing</label><select name="unit"><option>Flat rate</option><option>Per guest</option></select>
+    <label>Description</label><textarea name="description" rows="3" required></textarea>
+    <button type="submit">Register</button>
+  </form>
+  <div class="links"><a th:href="@{/vendor/login}">Back to sign in</a><br><a th:href="@{/}">&larr; Back to website</a></div>
+</div></body></html>

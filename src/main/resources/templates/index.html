@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><title>Everlove - Wedding planning made simple</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" th:href="@{/css/style.css}"><link rel="icon" type="image/svg+xml" th:href="@{/images/favicon.svg}"><meta name="theme-color" content="#9d3d55"></head>
+<body>
+<nav class="top">
+  <a th:href="@{/}"><img th:src="@{/images/logo.png}" alt="Everlove"></a>
+  <div class="links"><a href="#top">Home</a><a href="#vendors">Vendors</a><a href="#how">How it works</a></div>
+  <div class="links"><a th:href="@{/customer/login}">Log in</a><a class="btn small" th:href="@{/customer/register}">Sign up</a></div>
+</nav>
+<header class="hero" id="top">
+  <div class="wreath"></div>
+  <div class="eyebrow">WEDDING PLANNING MADE SIMPLE</div>
+  <h1>Plan your dream wedding. Book trusted vendors in minutes.</h1>
+  <p>Browse photographers, caterers, florists, venues, DJs and decorators. Pick your date, send a booking request and track everything in one place.</p>
+  <div class="cta"><a class="btn" href="#vendors">Browse vendors</a><a class="btn ghost" href="#how">How it works</a></div>
+</header>
+<section class="block" id="categories">
+  <h2>Everything for your big day</h2>
+  <div class="cats"><a class="cat c-Photographer" href="#vendors"><span>Photographers</span></a><a class="cat c-Caterer" href="#vendors"><span>Caterers</span></a><a class="cat c-Florist" href="#vendors"><span>Florists</span></a><a class="cat c-Venue" href="#vendors"><span>Venues</span></a><a class="cat c-DJ" href="#vendors"><span>DJs</span></a><a class="cat c-Decorator" href="#vendors"><span>Decorators</span></a></div>
+</section>
+<section class="block alt" id="vendors">
+  <h2>Our vendors</h2>
+  <div class="grid">
+    <div class="card" th:each="v : ${vendors}">
+      <div class="cthumb" th:classappend="'c-' + ${v.category}"></div>
+      <span class="tag" th:text="${v.category}"></span>
+      <h3 th:text="${v.name}"></h3>
+      <p class="muted" th:text="${v.city} + ' - from LKR ' + ${v.price} + ' ' + ${v.unit}"></p>
+      <p th:text="${v.description}"></p>
+      <p th:if="${v.reviewCount > 0}" th:text="'Rated ' + ${#numbers.formatDecimal(v.rating,1,1)} + '/5 (' + ${v.reviewCount} + ' reviews)'"></p>
+      <a class="btn small" th:href="@{/customer/login}">Book this vendor</a>
+    </div>
+  </div>
+  <p th:if="${#lists.isEmpty(vendors)}" class="muted">No vendors have joined yet. <a th:href="@{/vendor/register}">Register as a vendor</a> to be the first.</p>
+</section>
+<section class="block alt steps" id="how">
+  <h2>How it works</h2>
+  <div class="grid">
+    <div class="card"><h3>1. Create an account</h3><p>Sign up as a couple and save your wedding date, budget and guest count.</p></div>
+    <div class="card"><h3>2. Choose vendors</h3><p>Filter by category, compare prices and read reviews from other couples.</p></div>
+    <div class="card"><h3>3. Send a request</h3><p>Pick your date. The vendor accepts or declines, and you track the status.</p></div>
+  </div>
+</section>
+<section class="block features" id="why">
+  <h2>Why couples love Everlove</h2>
+  <div class="grid">
+    <div class="card"><img th:src="@{/images/icon-shield.svg}" alt=""><h3>Compare with confidence</h3><p>See prices, locations and categories side by side so you can shortlist vendors that fit your budget.</p></div>
+    <div class="card"><img th:src="@{/images/icon-calendar.svg}" alt=""><h3>Your date, your budget</h3><p>Save your wedding date and guest count, and watch your committed spend and countdown in one planner.</p></div>
+    <div class="card"><img th:src="@{/images/icon-star.svg}" alt=""><h3>Reviews from real couples</h3><p>Read honest ratings and comments from couples who have already booked, then leave your own.</p></div>
+  </div>
+</section>
+<section class="block alt" id="moments">
+  <h2>Moments to look forward to</h2>
+  <div class="mosaic">
+    <figure><img th:src="@{/images/scene-couple.svg}" alt="Couple under a floral wedding arch"><figcaption>Say &ldquo;I do&rdquo; beneath the blooms</figcaption></figure>
+    <figure><img th:src="@{/images/scene-rings.svg}" alt="Golden wedding rings"><figcaption>The rings</figcaption></figure>
+    <figure><img th:src="@{/images/cat-caterer.svg}" alt="Wedding cake and champagne"><figcaption>The feast</figcaption></figure>
+    <figure><img th:src="@{/images/cat-florist.svg}" alt="Wedding bouquet"><figcaption>The flowers</figcaption></figure>
+    <figure><img th:src="@{/images/cat-venue.svg}" alt="Wedding venue with floral arch"><figcaption>The venue</figcaption></figure>
+  </div>
+</section>
+<section class="cta-band">
+  <h2>Ready to start planning?</h2>
+  <p>Create your account, save your date and send your first booking request today.</p>
+  <a class="btn" th:href="@{/customer/register}">Create your account</a><a class="btn ghost" th:href="@{/customer/login}">Log in</a>
+</section>
+<footer><span>Everlove - planning beautiful together</span><span>Are you a vendor? <a th:href="@{/vendor/login}">Vendor log in</a> or <a th:href="@{/vendor/register}">register</a> &nbsp;|&nbsp; <a th:href="@{/admin/login}">Admin</a></span></footer>
+</body></html>
