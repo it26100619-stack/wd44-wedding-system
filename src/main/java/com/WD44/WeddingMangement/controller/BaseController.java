@@ -5,7 +5,7 @@ import com.WD44.WeddingMangement.repository.TextFileRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-/** INHERITANCE: every controller extends this class and reuses the session and clean-up helpers. */
+
 public abstract class BaseController {
     protected static final String CUSTOMER_LOGIN = "redirect:/customer/login";
     protected static final String VENDOR_LOGIN = "redirect:/vendor/login";
