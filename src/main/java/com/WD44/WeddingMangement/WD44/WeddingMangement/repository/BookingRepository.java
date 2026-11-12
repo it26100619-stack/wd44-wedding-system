@@ -1,4 +1,5 @@
 package com.WD44.WeddingMangement.WD44.WeddingMangement.repository;
+
 import com.WD44.WeddingMangement.model.*;
 import org.springframework.stereotype.Repository;
 import java.util.*;
