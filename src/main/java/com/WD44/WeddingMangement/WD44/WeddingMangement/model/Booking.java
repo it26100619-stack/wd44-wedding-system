@@ -1,7 +1,6 @@
 package com.WD44.WeddingMangement.WD44.WeddingMangement.model;
 import static com.WD44.WeddingMangement.repository.TextFileRepository.at;
 
-
 public class Booking extends BaseEntity {
     private String customerId, customerName, vendorId, vendorName, date, note, guests = "0", total = "0";
     private BookingStatus status = BookingStatus.PENDING;
