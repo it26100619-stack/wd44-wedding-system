@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** BOOKING MANAGEMENT: date and guests, send request, my bookings, vendor accepts or declines. */
+
 @Controller
 public class BookingController extends BaseController {
     private final BookingRepository bookings;
