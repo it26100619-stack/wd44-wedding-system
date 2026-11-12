@@ -4,7 +4,6 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 import java.util.stream.Collectors;
 
-
 @Repository
 public class BookingRepository extends BaseRepository<Booking> {
     public BookingRepository(TextFileRepository file) { super(file); }
