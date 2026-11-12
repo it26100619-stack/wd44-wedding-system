@@ -4,13 +4,7 @@ import com.WD44.WeddingMangement.model.Storable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Shared parent of the six component repositories.
- * Abstraction  : fileName() and fromRow() are abstract - each child says which file and how to build its object.
- * Inheritance  : UserRepository, VendorRepository, BookingRepository, PlanRepository, ReviewRepository and
- *                StoreRepository all inherit findAll/findById/save/upsert/deleteById/count from here.
- * Polymorphism : generic code works on any Storable, and children may override methods (VendorRepository.findAll).
- */
+
 public abstract class BaseRepository<T extends Storable> {
     protected final TextFileRepository file;
     protected BaseRepository(TextFileRepository file) { this.file = file; }
