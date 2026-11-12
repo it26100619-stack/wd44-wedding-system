@@ -1,4 +1,4 @@
-package com.WD44.WeddingMangement.WD44.WeddingMangement.model;
+package com.WD44.WeddingMangement.model;
 import static com.WD44.WeddingMangement.repository.TextFileRepository.at;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
