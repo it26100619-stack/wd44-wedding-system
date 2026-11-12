@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 
-/** Admin sign in and overview. Adding / deleting vendors lives in VendorController. */
 @Controller
 @RequestMapping("/admin")
 public class AdminController extends BaseController {
