@@ -18,7 +18,7 @@ public class TextFileRepository {
     public static String clean(String s) {
         return s == null ? "" : s.replace("|", "/").replace("\n", " ").replace("\r", " ").trim();
     }
-    /** Safe column read so older rows with fewer columns still load. */
+
     public static String at(String[] r, int i, String def) { return i < r.length && !r[i].isBlank() ? r[i] : def; }
 
     public synchronized List<String[]> read(String name) {
