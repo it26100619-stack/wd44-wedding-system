@@ -5,7 +5,6 @@ import com.WD44.WeddingMangement.repository.TextFileRepository;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-
 public abstract class BaseController {
     protected static final String CUSTOMER_LOGIN = "redirect:/customer/login";
     protected static final String VENDOR_LOGIN = "redirect:/vendor/login";
