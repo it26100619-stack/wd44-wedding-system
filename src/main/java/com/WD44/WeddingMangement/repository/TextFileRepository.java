@@ -7,7 +7,6 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** Low-level file access: one record per line, fields separated by "|", files live in ./data */
 @Repository
 public class TextFileRepository {
     private final Path dir = Paths.get("data");
