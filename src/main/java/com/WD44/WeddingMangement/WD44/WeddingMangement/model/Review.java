@@ -1,13 +1,6 @@
 package com.WD44.WeddingMangement.WD44.WeddingMangement.model;
 import static com.WD44.WeddingMangement.repository.TextFileRepository.at;
 
-/**
- * REVIEW MANAGEMENT - OOP concepts
- * 1. Encapsulation : private fields; setRating() always keeps the value between 1 and 5.
- * 2. Inheritance   : Review extends BaseEntity.
- * 3. Polymorphism  : implements Comparable<Review>, so Collections.sort() can order any list of
- *                    reviews newest-first by calling compareTo(); toString() is overridden too.
- */
 public class Review extends BaseEntity implements Comparable<Review> {
     private String vendorId, customerName, rating = "5", comment = "", bookingId = "";
 
