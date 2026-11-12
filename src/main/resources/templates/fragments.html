@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"><body>
+<header class="cnav" th:fragment="nav(active)">
+  <a th:href="@{/}"><img th:src="@{/images/logo.png}" alt="Everlove"></a>
+  <nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/customer/dashboard}" th:classappend="${active == 'vendors'} ? 'on'">Vendors</a>
+    <a th:href="@{/customer/bookings}" th:classappend="${active == 'bookings'} ? 'on'">My bookings</a>
+    <a th:href="@{/customer/wedding}" th:classappend="${active == 'wedding'} ? 'on'">My wedding</a>
+  </nav>
+  <div class="who"><a th:href="@{/customer/profile}">Hi, <span th:text="${customer.name}"></span></a>
+    <a class="btn ghost small" th:href="@{/customer/logout}">Log out</a></div>
+</header>
+</body></html>
